@@ -13,7 +13,7 @@ app.get('/v1/:id/:text', async (req, res) => {
     if (req.params.text) {
       const result = await translate(req.params.text);
 
-      res.send(result);
+      res.send({ result });
     } else {
       res.sendStatus(400).send(null);
     }
@@ -27,7 +27,7 @@ app.get('/v1s/:id/:text', async (req, res) => {
     if (req.params.text) {
       const result = await synonyms(req.params.text);
 
-      res.send(JSON.stringify(result));
+      res.send({ result });
     } else {
       res.sendStatus(400).send(null);
     }
@@ -41,7 +41,7 @@ app.get('/v2/:id/:text', async (req, res) => {
     if (req.params.text) {
       const result = await translator(req.params.text);
 
-      res.send(result);
+      res.send({ result });
     } else {
       res.sendStatus(400).send(null);
     }
